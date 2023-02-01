@@ -5,6 +5,7 @@ from environs import Env
 import openai
 import os
 import dotenv
+import random
 
 dotenv.load_dotenv()
 
@@ -23,3 +24,9 @@ def askGPT(text: str) -> str:
 def get_advice() -> str:
     request = PROMPTS['get_advice']
     return askGPT(request)
+
+
+def get_prediction() -> str:
+    request = random.choice(PROMPTS['predictions'])
+    return askGPT(request)
+
