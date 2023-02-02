@@ -16,7 +16,7 @@ def askGPT(text: str) -> str:
         engine = "text-davinci-003",
         prompt = text,
         temperature=0.6,
-        max_tokens = 350,
+        max_tokens = 600,
 
     )
     return response.choices[0].text
@@ -29,4 +29,3 @@ def get_advice() -> str:
 def get_prediction() -> str:
     request = random.choice(PROMPTS['predictions'])
     return askGPT(request)
-
