@@ -29,3 +29,4 @@ def get_advice() -> str:
 def get_prediction() -> str:
     request = random.choice(PROMPTS['predictions'])
     return askGPT(request)
+

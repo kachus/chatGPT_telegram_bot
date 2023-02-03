@@ -22,7 +22,7 @@ async def process_start_command(message:Message):
     await message.answer(text=LEXICON_RU['/start'], reply_markup=chat_kb)
 
 async def get_advice_command(message:Message):
-    await message.answer(text=LEXICON_RU['processing_advice'])
+    await message.reply(text=LEXICON_RU['processing_advice'])
     await message.reply(text=get_advice())
 
 async def get_prediction_command(message:Message):
@@ -34,15 +34,18 @@ async def process_question_pressed(message:Message):
     await FSMFillForm.fill_question.set()
 
 async def process_getback_response(message:Message, state: FSMContext):
+    await message.reply(text=LEXICON_RU['processing_question'])
+    await message.reply(text=askGPT(message.text))
+    await state.finish()
+    await message.answer(text=LEXICON_RU['try_again'])
+    ''''
     if message.text == '/cancel':
         return await process_cancel_command(message, state)
-    '''''
     #keeping user's info in data dict 
     async with state.proxy() as data:
         data['user_question'] = message.text
     user_dict[message.from_user.id] = await state.get_data()
     '''''
-    await message.reply(text=askGPT(message.text))
 
 
 def register_user_handlers(dp:Dispatcher):
