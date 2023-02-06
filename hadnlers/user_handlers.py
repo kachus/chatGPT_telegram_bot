@@ -21,6 +21,7 @@ async def process_cancel_command(message:Message, state: FSMContext):
 
 async def process_start_command(message:Message):
     await message.answer(text=LEXICON_RU['/start'], reply_markup=chat_kb)
+
 async def process_help_command(message:Message):
     await message.answer(text=LEXICON_RU['help'])
 
@@ -39,7 +40,12 @@ async def process_command_userquestion(message:Message):
     await message.reply(text=LEXICON_RU['processing_question'])
     await message.reply(text=askGPT(user_question))
 
+async def process_command_USER(message:Message):
+    await message.reply(text=LEXICON_RU['ask_question'])
+    await FSMFillForm.fill_question.set()
 
+
+#can be used only in private chat
 async def process_getback_response(message:Message, state: FSMContext):
     if message.text == '/cancel':
         return await process_cancel_command(message,state)
@@ -62,6 +68,7 @@ def register_user_handlers(dp:Dispatcher):
     dp.register_message_handler(get_advice_command, text=LEXICON_RU['advice'])
     dp.register_message_handler(get_prediction_command, text=LEXICON_RU['prediction'])
     dp.register_message_handler(process_getback_response, state=FSMFillForm.fill_question)
+    dp.register_message_handler(process_command_USER, commands='admin_question')
     dp.register_message_handler(process_cancel_command, commands='cancel')
     dp.register_message_handler(process_command_userquestion, commands='myquestion')
     dp.register_message_handler(process_help_command, commands = 'help')
