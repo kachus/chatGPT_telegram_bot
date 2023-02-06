@@ -16,7 +16,7 @@ def askGPT(text: str) -> str:
         engine = "text-davinci-003",
         prompt = text,
         temperature=0.6,
-        max_tokens = 600,
+        max_tokens = 800,
 
     )
     return response.choices[0].text

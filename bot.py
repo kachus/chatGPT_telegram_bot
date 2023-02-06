@@ -6,6 +6,8 @@ from config_data.config import Config, load_config
 from hadnlers.user_handlers import register_user_handlers
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
+from keyboards.set_menu import set_main_menu
+
 logger = logging.getLogger(__name__)
 
 def register_all_handlers(dp:Dispatcher) -> None:
@@ -30,6 +32,7 @@ async def main():
     dp: Dispatcher = Dispatcher(bot, storage=storage)
 
     register_all_handlers(dp)
+    await set_main_menu(dp)
 
     try:
         await dp.start_polling()
