@@ -10,7 +10,7 @@ charset-normalizer==2.1.1
 environs==9.5.0
 frozenlist==1.2.0
 idna==3.4
-magic-filter==1.0.9
+magic-filter==1.0.8
 marshmallow==3.19.0
 multidict==6.0.4
 openai==0.26.4
