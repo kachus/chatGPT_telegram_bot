@@ -67,7 +67,7 @@ def register_user_handlers(dp:Dispatcher):
     #dp.register_callback_query_handler(get_advice, text='advice_bt_pressed')
     dp.register_message_handler(get_advice_command, text=LEXICON_RU['advice'])
     dp.register_message_handler(get_prediction_command, text=LEXICON_RU['prediction'])
-    dp.register_message_handler(process_getback_response, state=FSMFillForm.fill_question)
+    dp.register_message_handler(process_getback_response, state=FSMFillForm.fill_question)   # can be used in private chat, isn't in the menu
     dp.register_message_handler(process_command_USER, commands='admin_question')
     dp.register_message_handler(process_cancel_command, commands='cancel')
     dp.register_message_handler(process_command_userquestion, commands='myquestion')
