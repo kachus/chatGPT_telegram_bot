@@ -10,6 +10,7 @@ packages = [{include = "chatgpt_bot"}]
 python = "^3.9"
 asyncio = "^3.4.3"
 aiogram = "^2.24"
+environs = "^9.5.0"
 
 
 [build-system]
