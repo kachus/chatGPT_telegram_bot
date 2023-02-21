@@ -20,10 +20,10 @@ async def process_cancel_command(message:Message, state: FSMContext):
     await state.reset_state()
 
 async def process_start_command(message:Message):
-    await message.answer(text=LEXICON_RU['/start'], reply_markup=chat_kb)
+    await message.reply(text=LEXICON_RU['/start'], reply_markup=chat_kb)
 
 async def process_help_command(message:Message):
-    await message.answer(text=LEXICON_RU['help'])
+    await message.reply(text=LEXICON_RU['help'])
 
 async def get_advice_command(message:Message):
     await message.reply(text=LEXICON_RU['processing_advice'])
