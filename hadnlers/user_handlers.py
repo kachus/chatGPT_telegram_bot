@@ -40,9 +40,12 @@ async def process_command_userquestion(message:Message):
     await message.reply(text=LEXICON_RU['processing_question'])
     await message.reply(text=askGPT(user_question))
 
+
+#opens an interacrive mode so a user can just text a question without a command.
 async def process_command_USER(message:Message):
     await message.reply(text=LEXICON_RU['ask_question'])
     await FSMFillForm.fill_question.set()
+
 
 
 #can be used only in private chat
