@@ -5,4 +5,5 @@ venv/
 **/__pycache__/
 ../parse_messages.py
 bot_example.py
+get-pip.py
 
