@@ -19,4 +19,7 @@ LEXICON_RU={
 LEXICON_COMMANDS_RU: dict[str, str] = {
     '/myquestion': 'Можешь задать свой вопрос у ChatGPT в виде "/myquestion Когда рак на горе свистнет?"',
     '/help': 'Справка по командам',
+    '/advice': 'Получить совет о том, чем заняться',
+    '/prediction': 'Получить предсказание'
+
 }
