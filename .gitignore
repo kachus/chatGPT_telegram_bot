@@ -2,6 +2,7 @@
 .mypy_cache/
 .vscode/
 venv/
-__pycache__/
+**/__pycache__/
 ../parse_messages.py
 bot_example.py
+
